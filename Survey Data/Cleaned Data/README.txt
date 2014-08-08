@@ -1,0 +1,1 @@
+These are similar to the raw data but debuguser ids are removed and some additional attributes are added, most notably a sessioniterations column containing the iteration within that session for each character. 
