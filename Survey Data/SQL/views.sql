@@ -154,8 +154,28 @@ BEGIN
 END
 $$ LANGUAGE plpgsql;
 
-
-
-
+DROP VIEW IF EXISTS "average-time-between-sessions" CASCADE;
+CREATE VIEW "average-time-between-sessions" AS
+	SELECT 
+		session,
+		avg(
+			(
+				SELECT min(time) FROM "clean-character-data" 
+				WHERE session = "outer".session + 1
+					AND userid = "outer".userid
+			) - (
+				SELECT min(time) FROM "clean-character-data" 
+				WHERE session = "outer".session
+					AND userid = "outer".userid
+			)
+		)
+	FROM "clean-character-data" AS "outer"
+	WHERE session < 2
+		AND EXISTS (
+			SELECT * FROM "clean-character-data" 
+			WHERE userid = "outer".userid AND session = "outer".session + 1
+		)
+	GROUP BY session
+;
 
 
