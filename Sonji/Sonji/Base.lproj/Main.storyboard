@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.7" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PxF-Ax-wPy">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6181.2"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--CharacterTestViewController-->
+        <scene sceneID="3qM-eY-iJ1">
+            <objects>
+                <viewController storyboardIdentifier="CharacterDrawQuizViewController" title="CharacterTestViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hzS-jB-y9W" customClass="CharacterDrawQuizViewController" customModule="Sonji" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6LC-1I-4vP"/>
+                        <viewControllerLayoutGuide type="bottom" id="a4F-Wq-f2I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gLe-Tb-ylt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mYH-Ow-wTC" customClass="CharacterView" customModule="Sonji" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="248" width="320" height="320"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="qGR-Qs-mSM">
+                                        <rect key="frame" x="141" y="141" width="37" height="37"/>
+                                        <color key="color" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="qGR-Qs-mSM" firstAttribute="centerX" secondItem="mYH-Ow-wTC" secondAttribute="centerX" id="2SQ-iv-K8L"/>
+                                    <constraint firstItem="qGR-Qs-mSM" firstAttribute="centerY" secondItem="mYH-Ow-wTC" secondAttribute="centerY" id="CWR-cz-sUh"/>
+                                    <constraint firstAttribute="width" secondItem="mYH-Ow-wTC" secondAttribute="height" multiplier="1:1" id="Cdh-Yb-S4Q"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cv1-iz-Qw3">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="248"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Loading" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="i7n-lc-4In">
+                                        <rect key="frame" x="20" y="95" width="280" height="57"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="48"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.96821446572580661" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="i7n-lc-4In" secondAttribute="centerY" id="2RM-su-UeD"/>
+                                    <constraint firstAttribute="centerX" secondItem="i7n-lc-4In" secondAttribute="centerX" id="3X4-es-f3B"/>
+                                    <constraint firstAttribute="trailing" secondItem="i7n-lc-4In" secondAttribute="trailing" constant="20" symbolic="YES" id="gjf-fA-xl9"/>
+                                    <constraint firstItem="i7n-lc-4In" firstAttribute="leading" secondItem="cv1-iz-Qw3" secondAttribute="leading" constant="20" symbolic="YES" id="ieP-fK-Lrg"/>
+                                </constraints>
+                            </view>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="〉" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KcL-e6-u1y">
+                                <rect key="frame" x="284" y="387" width="36" height="41.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="36"/>
+                                <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Im0-B2-td9">
+                                <rect key="frame" x="20" y="268" width="30" height="30"/>
+                                <state key="normal" title="↻">
+                                    <color key="titleColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="left" fixedFrame="YES" text="Tap for a clue" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" minimumFontSize="10" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="98P-nj-L70">
+                                <rect key="frame" x="20" y="351" width="280" height="114"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="48"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="cv1-iz-Qw3" firstAttribute="top" secondItem="gLe-Tb-ylt" secondAttribute="top" id="1fg-cw-rOt"/>
+                            <constraint firstAttribute="trailing" secondItem="cv1-iz-Qw3" secondAttribute="trailing" id="2aR-ep-mlG"/>
+                            <constraint firstItem="mYH-Ow-wTC" firstAttribute="top" secondItem="gLe-Tb-ylt" secondAttribute="top" constant="40" id="7gj-Uu-OVR"/>
+                            <constraint firstItem="Im0-B2-td9" firstAttribute="top" secondItem="mYH-Ow-wTC" secondAttribute="top" constant="20" id="95Q-DU-e21"/>
+                            <constraint firstAttribute="trailing" secondItem="KcL-e6-u1y" secondAttribute="trailing" id="FTE-wK-Fuq"/>
+                            <constraint firstAttribute="bottom" secondItem="mYH-Ow-wTC" secondAttribute="bottom" id="Nhv-Rh-INw"/>
+                            <constraint firstItem="cv1-iz-Qw3" firstAttribute="leading" secondItem="gLe-Tb-ylt" secondAttribute="leading" id="SOw-qg-GwC"/>
+                            <constraint firstItem="mYH-Ow-wTC" firstAttribute="leading" secondItem="gLe-Tb-ylt" secondAttribute="leading" id="dgF-es-CjF"/>
+                            <constraint firstItem="KcL-e6-u1y" firstAttribute="centerY" secondItem="mYH-Ow-wTC" secondAttribute="centerY" id="e3j-E9-c0D"/>
+                            <constraint firstItem="mYH-Ow-wTC" firstAttribute="top" secondItem="cv1-iz-Qw3" secondAttribute="bottom" id="iwK-B9-Yev"/>
+                            <constraint firstAttribute="trailing" secondItem="mYH-Ow-wTC" secondAttribute="trailing" id="kuO-Sn-5sX"/>
+                            <constraint firstItem="Im0-B2-td9" firstAttribute="leading" secondItem="gLe-Tb-ylt" secondAttribute="leading" constant="20" symbolic="YES" id="sLA-VY-EYS"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="7gj-Uu-OVR"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
+                        <size key="portraitSize" width="320" height="568"/>
+                        <size key="landscapeSize" width="568" height="320"/>
+                    </simulatedScreenMetrics>
+                    <connections>
+                        <outlet property="canvasHelp" destination="98P-nj-L70" id="aaL-Kp-MLi"/>
+                        <outlet property="desiredCharacterView" destination="mYH-Ow-wTC" id="tPX-70-PDt"/>
+                        <outlet property="loadingIndicator" destination="qGR-Qs-mSM" id="GSd-4o-tZa"/>
+                        <outlet property="metaDataView" destination="cv1-iz-Qw3" id="GFx-h0-aHC"/>
+                        <outlet property="nextArrowLabel" destination="KcL-e6-u1y" id="uzn-sj-uGK"/>
+                        <outlet property="translationLabel" destination="i7n-lc-4In" id="QSe-pQ-bfB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PHE-GN-Yf3" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1327" y="520"/>
+        </scene>
+        <!--Sound Test View Controller-->
+        <scene sceneID="DyI-Dd-JbO">
+            <objects>
+                <viewController storyboardIdentifier="SoundTestViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CN3-CT-hjA" customClass="SoundTestViewController" customModule="Sonji" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HW9-fd-xxO"/>
+                        <viewControllerLayoutGuide type="bottom" id="NmS-bJ-ySw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="i52-Ku-3my">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8u2-xY-n0e">
+                                <rect key="frame" x="0.0" y="20" width="320" height="228"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="cIX-fi-m7m">
+                                        <rect key="frame" x="20" y="57" width="280" height="114"/>
+                                        <string key="text">Turn up the volume.
+Draw what you hear.</string>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="48"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.96821446570000003" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="cIX-fi-m7m" secondAttribute="trailing" constant="20" symbolic="YES" id="2re-86-dV0"/>
+                                    <constraint firstAttribute="centerY" secondItem="cIX-fi-m7m" secondAttribute="centerY" id="3px-lc-yvR"/>
+                                    <constraint firstItem="cIX-fi-m7m" firstAttribute="leading" secondItem="8u2-xY-n0e" secondAttribute="leading" constant="20" symbolic="YES" id="cdJ-Oz-9in"/>
+                                    <constraint firstAttribute="centerX" secondItem="cIX-fi-m7m" secondAttribute="centerX" id="rLX-o4-zCW"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6qE-mH-Aae" customClass="CharacterCanvas" customModule="Sonji" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="248" width="320" height="320"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Draw here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="iz0-ZP-t6g">
+                                        <rect key="frame" x="20" y="103" width="280" height="114"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="48"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="6qE-mH-Aae" secondAttribute="height" multiplier="1:1" id="4W3-IZ-8tr"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6qE-mH-Aae" firstAttribute="top" secondItem="8u2-xY-n0e" secondAttribute="bottom" id="CKD-zn-SCf"/>
+                            <constraint firstAttribute="trailing" secondItem="8u2-xY-n0e" secondAttribute="trailing" id="NaQ-jZ-CDS"/>
+                            <constraint firstItem="6qE-mH-Aae" firstAttribute="leading" secondItem="i52-Ku-3my" secondAttribute="leading" id="afU-F2-byc"/>
+                            <constraint firstItem="8u2-xY-n0e" firstAttribute="leading" secondItem="i52-Ku-3my" secondAttribute="leading" id="kSm-Af-hKu"/>
+                            <constraint firstAttribute="bottom" secondItem="6qE-mH-Aae" secondAttribute="bottom" id="kpy-Uf-wEd"/>
+                            <constraint firstItem="8u2-xY-n0e" firstAttribute="top" secondItem="HW9-fd-xxO" secondAttribute="bottom" id="nQD-PV-FHR"/>
+                            <constraint firstAttribute="trailing" secondItem="6qE-mH-Aae" secondAttribute="trailing" id="tjx-kG-9lN"/>
+                        </constraints>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
+                        <size key="portraitSize" width="320" height="568"/>
+                        <size key="landscapeSize" width="568" height="320"/>
+                    </simulatedScreenMetrics>
+                    <connections>
+                        <outlet property="canvas" destination="6qE-mH-Aae" id="CAI-hW-MIc"/>
+                        <outlet property="drawHereLabel" destination="iz0-ZP-t6g" id="uzA-q8-Jwc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OIr-EV-BWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="882" y="476"/>
+        </scene>
+        <!--Please Wait View Controller-->
+        <scene sceneID="FGg-wu-A2B">
+            <objects>
+                <viewController storyboardIdentifier="PleaseWaitViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Fv0-Z1-7gq" customClass="PleaseWaitViewController" customModule="Sonji" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nel-NF-k30"/>
+                        <viewControllerLayoutGuide type="bottom" id="zRY-2f-HD9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qji-PM-Udx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BOC-SF-hrh">
+                                <rect key="frame" x="20" y="142" width="280" height="284"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sakura.png" translatesAutoresizingMaskIntoConstraints="NO" id="nJT-gm-dcG">
+                                        <rect key="frame" x="74" y="0.0" width="133" height="127"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="You're doing great!" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="6pz-L3-k4Y">
+                                        <rect key="frame" x="0.0" y="112" width="280" height="60"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="48"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Now ponder what you've learned for a bit and come back in a while" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="vBj-sB-Ipn">
+                                        <rect key="frame" x="0.0" y="156" width="280" height="114"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="48"/>
+                                        <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="YYG-Oz-qKc"/>
+                                    <constraint firstAttribute="height" constant="284" id="pmx-5j-JAU"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="BOC-SF-hrh" secondAttribute="centerY" id="8wd-Pn-mw8"/>
+                            <constraint firstAttribute="centerX" secondItem="BOC-SF-hrh" secondAttribute="centerX" id="a4z-IA-60z"/>
+                        </constraints>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
+                        <size key="portraitSize" width="320" height="568"/>
+                        <size key="landscapeSize" width="568" height="320"/>
+                    </simulatedScreenMetrics>
+                    <connections>
+                        <outlet property="messageLabel" destination="vBj-sB-Ipn" id="vDJ-t4-4kW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bk8-Pl-crs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1708" y="520"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="3GU-QQ-JyJ">
+            <objects>
+                <viewController id="PxF-Ax-wPy" customClass="RootViewController" customModule="Sonji" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="17i-ZA-3zy"/>
+                        <viewControllerLayoutGuide type="bottom" id="8Yh-h8-jIR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cc6-cB-pgf">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BPC-vx-IW7" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="360" y="476"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="sakura.png" width="550" height="550"/>
+    </resources>
+</document>
