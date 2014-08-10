@@ -111,15 +111,17 @@ DECLARE
 	benefit decimal;
 BEGIN
 	SELECT sum(ntries)/sum(strokes) INTO µTriesWithAudio FROM "filtered-character-data"
-		WHERE 	userid = desireduserid AND 
-				session = desiredsession AND 
-				audio = TRUE
+		WHERE 	userid = desireduserid 
+			AND session = desiredsession 
+			AND audio = TRUE 
+			-- AND sessioniteration = 1
 	;
 	
 	SELECT sum(ntries)/sum(strokes) INTO µTriesWithNoAudio FROM "filtered-character-data" 
-		WHERE 	userid = desireduserid AND 
-				session = desiredsession AND 
-				audio = FALSE
+		WHERE 	userid = desireduserid 
+			AND session = desiredsession 
+			AND audio = FALSE 
+			-- AND sessioniteration = 1
 	;
 	
 	benefit := µTriesWithNoAudio - µTriesWithAudio;
@@ -138,15 +140,17 @@ DECLARE
 	benefit decimal;
 BEGIN
 	SELECT sum(nhelps)/sum(strokes) INTO µHelpsWithAudio FROM "filtered-character-data"
-		WHERE 	userid = desireduserid AND 
-				session = desiredsession AND 
-				audio = TRUE
+		WHERE 	userid = desireduserid 
+			AND session = desiredsession 
+			AND audio = TRUE 
+			-- AND sessioniteration = 1
 	;
 	
 	SELECT sum(nhelps)/sum(strokes) INTO µHelpsWithNoAudio FROM "filtered-character-data" 
-		WHERE 	userid = desireduserid AND 
-				session = desiredsession AND 
-				audio = FALSE
+		WHERE 	userid = desireduserid 
+			AND session = desiredsession 
+			AND audio = FALSE
+			-- AND sessioniteration = 1
 	;
 	
 	benefit := µHelpsWithNoAudio - µHelpsWithAudio;
@@ -178,4 +182,59 @@ CREATE VIEW "average-time-between-sessions" AS
 	GROUP BY session
 ;
 
+CREATE OR REPLACE FUNCTION
+meanHelpsForSessionAndAudio(desiredsession int, desiredaudio boolean)
+RETURNS decimal
+AS $$
+BEGIN
+	RETURN (
+		SELECT avg(meanhelps) FROM 
+		-- Calculate averages per user first to mitigate that proficient 
+		-- users may have gotten more kanji with or without audio.
+		(
+			SELECT 
+				session, audio,
+				sum(nhelps)/sum(strokes) AS meanhelps 
+			FROM "filtered-character-data"
+			GROUP BY userid, session, audio
+		) AS "filtered-character-data-grouped-by-user"
+		WHERE 	session = desiredsession 
+			AND audio = desiredaudio
+	);
+END
+$$ LANGUAGE plpgsql;
 
+CREATE OR REPLACE FUNCTION
+meanTriesForSessionAndAudio(desiredsession int, desiredaudio boolean)
+RETURNS decimal
+AS $$
+BEGIN
+	RETURN (
+		SELECT avg(meantries) FROM 
+		-- Calculate averages per user first to mitigate that proficient 
+		-- users may have gotten more kanji with or without audio.
+		(
+			SELECT 
+				session, audio,
+				sum(ntries)/sum(strokes) AS meantries 
+			FROM "filtered-character-data"
+			GROUP BY userid, session, audio
+		) AS "filtered-character-data-grouped-by-user"
+		WHERE 	session = desiredsession 
+			AND audio = desiredaudio
+	);
+END
+$$ LANGUAGE plpgsql;
+
+DROP VIEW IF EXISTS "session-stats-means" CASCADE;
+CREATE VIEW "session-stats-means" AS
+	SELECT 
+		session,
+		meanHelpsForSessionAndAudio(session, TRUE) AS "µHelps with Audio",
+		meanHelpsForSessionAndAudio(session, FALSE) AS "µHelps without Audio",
+		meanTriesForSessionAndAudio(session, TRUE) AS "µTries with Audio",
+		meanTriesForSessionAndAudio(session, FALSE) AS "µTries without Audio"
+	FROM "user-stats"
+	GROUP BY session
+	ORDER BY session
+;
