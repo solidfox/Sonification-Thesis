@@ -37,3 +37,12 @@ CREATE TABLE debugusers (
 );
 
 \COPY debugusers FROM '../Raw Data/debugusers.csv' DELIMITER ',' CSV HEADER
+
+DROP TABLE IF EXISTS feedback CASCADE;
+CREATE TABLE feedback (
+	time 			timestamp,
+	userid			text PRIMARY KEY,
+	comment			text
+);
+
+\COPY feedback FROM '../Raw Data/feedback.csv' DELIMITER ',' CSV HEADER
